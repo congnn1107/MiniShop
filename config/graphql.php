@@ -3,7 +3,12 @@
 declare(strict_types = 1);
 
 use App\GraphQL\Query\UsersQuery;
+use App\GraphQL\Query\ProfileQuery;
+use App\GraphQL\Query\Login as LoginQuery;
 use App\GraphQL\Types\UsersType;
+use App\GraphQL\Types\ProfileType;
+use App\GraphQL\Types\LoginType;
+use App\GraphQL\Scalars\Login;
 
 return [
     'route' => [
@@ -78,14 +83,19 @@ return [
     'schemas' => [
         'default' => [
             'query' => [
-                'users' => UsersQuery::class
+                'users' => UsersQuery::class,
+                'profile' => ProfileQuery::class,
+                'login' => LoginQuery::class,
             ],
             'mutation' => [
                 // ExampleMutation::class,
             ],
             // The types only available in this schema
             'types' => [
-                'users' => UsersType::class
+                'users' => UsersType::class,
+                'profile' => ProfileType::class,
+                'login' => Login::class,
+                'login_type' => LoginType::class,
                 // ExampleType::class,
             ],
 
